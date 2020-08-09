@@ -1,0 +1,35 @@
+
+<form [formGroup]="userUpdateForm" (ngSubmit)="updateInfo()">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstname" placeholder="First Name">
+        <mat-icon matSuffix>face</mat-icon>
+        <mat-error *ngIf="userUpdateForm.controls.firstname.errors && (userUpdateForm.controls.firstname.dirty || userUpdateForm.controls.firstname.touched)">
+          Please include a first name.
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastname" placeholder="Last Name">
+        <mat-icon matSuffix>face</mat-icon>
+        <mat-error *ngIf="userUpdateForm.controls.lastname.errors && (userUpdateForm.controls.lastname.dirty || userUpdateForm.controls.lastname.touched)">
+          Please include a last name.
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email Address">
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-error *ngIf="userUpdateForm.controls.email.errors && (userUpdateForm.controls.email.dirty || userUpdateForm.controls.email.touched)">
+          Please use a valid email address.
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <button mat-raised-button color = "primary" type="submit" [disabled]="!userUpdateForm.valid">Submit</button>
+
+  </form>

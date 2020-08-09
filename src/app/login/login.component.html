@@ -1,0 +1,19 @@
+<form [formGroup]="userLoginForm" (ngSubmit)="login()">
+    <p>
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" placeholder="Username">
+        <mat-icon matSuffix>account_circle</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName='password' [type]="showPassword ? 'text' : 'password'" placeholder="Password">
+          <mat-icon matSuffix class="hover" (click)='showPassword = !showPassword' matTooltip="Click to show password">vpn_key</mat-icon>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button color = "primary" type="submit" [disabled]="!userLoginForm.valid">Login</button>
+</form>
+
+<button mat-raised-button color = "primary" [routerLink]="['/signup']">Signup</button>

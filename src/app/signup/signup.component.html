@@ -1,0 +1,65 @@
+<form [formGroup]="userSignupForm" (ngSubmit)="signup()">
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" placeholder="Username">
+      <mat-icon matSuffix>account_circle</mat-icon>
+      <mat-error *ngIf="userSignupForm.controls.username.errors && (userSignupForm.controls.username.dirty || userSignupForm.controls.username.touched)">
+        Invalid username - must be between 4 and 48 characters with no special characters or spaces.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstname" placeholder="First Name">
+      <mat-icon matSuffix>face</mat-icon>
+      <mat-error *ngIf="userSignupForm.controls.firstname.errors && (userSignupForm.controls.firstname.dirty || userSignupForm.controls.firstname.touched)">
+        Please include a first name.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastname" placeholder="Last Name">
+      <mat-icon matSuffix>face</mat-icon>
+      <mat-error *ngIf="userSignupForm.controls.lastname.errors && (userSignupForm.controls.lastname.dirty || userSignupForm.controls.lastname.touched)">
+        Please include a last name.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Email Address">
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="userSignupForm.controls.email.errors && (userSignupForm.controls.email.dirty || userSignupForm.controls.email.touched)">
+        Please use a valid email address.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName='password' [type]="showPassword ? 'text' : 'password'" placeholder="Password">
+      <mat-icon matSuffix class="hover" (click)='showPassword = !showPassword' matTooltip="Click to show password">vpn_key</mat-icon>
+      <mat-error *ngIf="userSignupForm.controls.password.errors && (userSignupForm.controls.password.dirty || userSignupForm.controls.password.touched)">
+        Invalid password - must have 6 characaters with at least a capital letter and number.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput formControlName='confirmPassword' [errorStateMatcher] = "matcher" [type]="showPassword ? 'text' : 'password'" placeholder="Confirm Password">
+      <mat-icon matSuffix class="hover" (click)='showPassword = !showPassword' matTooltip="Click to show password">vpn_key</mat-icon>
+      <mat-error *ngIf="userSignupForm.hasError('mismatch') && (userSignupForm.controls.password.dirty || userSignupForm.controls.password.touched)">
+        Passwords do not match.
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <button mat-raised-button color = "primary" type="submit" [disabled]="!userSignupForm.valid">Submit</button>
+</form>
+<button mat-raised-button color = "primary" [routerLink]="['/login']">Go to Login</button>
