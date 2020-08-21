@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from '../shared/classes/errorStateMatcher.classes';
 import { passwordMatchValidator } from '../shared/functions/passwordMatchValidator.function';
-import { UserService } from '../services/user.service';
+import { UserService } from '../services/user/user.service';
 
 @Component({
   selector: 'app-signup',

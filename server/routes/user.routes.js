@@ -3,7 +3,6 @@ const router = express.Router();
 const passport = require('passport');
 const userModels = require('../models/user.models');
 const jwt = require('jsonwebtoken');
-const { resolve } = require('dns');
 const regex = /^[a-zA-Z0-9]*$/;
 const regexSpace = /^\S*$/;
 const pwRegex = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
@@ -43,7 +42,7 @@ router.post('/login', (req, res)=>{
     passport.authenticate('local-login', (err, user, info)=>{
         if(user){
             let encrypted = jwt.sign({id: user.userid}, process.env.SESSION_SECRET, {expiresIn: '7d'});
-            return res.send({success: true, msg: "Welcome back!", user:{username: user.username, firstname: user.firstname, lastname: user.lastname, email: user.emailaddress, admin: user.admin}, jwt: encrypted});
+            return res.send({success: true, msg: "Welcome back!", user:{username: user.username, firstname: user.firstname, lastname: user.lastname, email: user.emailaddress, active: user.activated, admin: user.admin}, jwt: encrypted});
         }
         return res.send({success: false, msg: info});
     })(req, res)

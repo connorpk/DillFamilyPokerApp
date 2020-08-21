@@ -7,6 +7,7 @@ export interface UserRes{
 
 export interface User{
     admin: boolean,
+    active: boolean,
     email: string,
     firstname: string,
     lastname: string,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../interfaces/user.response.interface';
+import { User } from '../../interfaces/user.response.interface';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -12,6 +12,7 @@ export class UserStoreService {
 
   initUser: User={
     admin: null,
+    active: false,
     email: '',
     firstname: '',
     lastname: '',

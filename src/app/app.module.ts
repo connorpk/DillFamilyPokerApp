@@ -13,6 +13,7 @@ import { UpdatePasswordComponent } from './update-password/update-password.compo
 import { UpdateUserInfoComponent } from './update-user-info/update-user-info.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
+import { PlayerlistComponent } from './playerlist/playerlist.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdminComponent } from './admin/admin.component';
     UpdatePasswordComponent,
     UpdateUserInfoComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    PlayerlistComponent
 
   ],
   imports: [

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MyErrorStateMatcher } from '../shared/classes/errorStateMatcher.classes';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { passwordMatchValidator } from '../shared/functions/passwordMatchValidator.function';
-import { UserService } from '../services/user.service';
+import { UserService } from '../services/user/user.service';
 
 @Component({
   selector: 'app-update-password',

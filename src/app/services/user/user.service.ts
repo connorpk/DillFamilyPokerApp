@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserStoreService } from './user-store.service';
-import { UserRes } from '../interfaces/user.response.interface';
+import { UserRes } from '../../interfaces/user.response.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BasicRes } from '../interfaces/basic.response.interface';
+import { BasicRes } from '../../interfaces/basic.response.interface';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class UserService {
   errorMsg: string;
   headers = new HttpHeaders().append("Authorization", `JWT ${localStorage.getItem("jwt")}`);
 
-  constructor(private http: HttpClient, private userStoreService: UserStoreService, private snackBar: MatSnackBar, private router: Router) { }
+  constructor(private http: HttpClient, private userStoreService: UserStoreService, private snackBar: MatSnackBar) { }
 
   signup(newUser){
     this.http.post('/api/user/signup', newUser).subscribe((res: BasicRes)=>{
